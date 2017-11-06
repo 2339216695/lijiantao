@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <title>主页面</title>
+  <style type="text/css">
+    /*头部样式*/
+    .top{
+      z-index: 5;
+    }
+
+    /*尾部样式*/
+    .bottom{
+      z-index: 5;
+      background:#F8F8F8;
+    }
+    .bottom li{
+      list-style: none;
+    }
+    .bottom li>a{
+      color:#747579;
+    }
+    .bottom li>a>span{
+      line-height:30px;
+    }
+
+    /*切换到start页面的样式*/
+    .start{
+      width:100%;
+      height:900px;
+      position:absolute;
+      left:0;
+      top:0px;
+      background:white;
+      z-index: 10;
+    }
+    .start h1{
+      margin-top:100px;
+      font-size:76px;
+      font-family:"微软雅黑";
+      color:#337CB9;
+    }
+    .start img{
+      width:100%;
+      margin:0;
+      padding:0px;
+    }
+
+    /*首页*/
+    .main_1{
+      z-index: 20;
+    }
+    .main_1 dl{
+      margin-top: 10px;
+    }
+    .main_1 .media{
+      border:1px solid #F5F5F5;
+    }
+    .main_1 .media img{
+      margin-left:10px;
+    }
+    .main_1 .media p{
+      border-bottom:1px solid #F5F5F5;
+    }
+    .main_1 button{
+      margin-top:30px;
+    }
+    .main_1 .media-body span{
+      color:red;
+    }
+
+    /*菜单详情页样式*/
+    .detail ul{
+      background:#F5F5F5;
+    }
+    .detail .detail_all_info{
+      border:1px solid #F5F5F5;
+    }
+    .detail .detail_all_info .detail_info{
+      margin:0px 10px;
+    }
+    .detail .detail_all_info .detail_info img{
+      width:100%;
+      margin:0px;
+      padding:0px;
+    }
+    .detail .detail_info h2{
+      border-bottom:1px solid #F5F5F5;
+    }
+    .detail .detail_info>div p{
+      margin-top:10px;
+    }
+    .detail .detail_info .detail_center{
+      background:#F5F5F5;
+    }
+    .detail .detail_all_info .detail_bottom{
+      width:100%;
+      padding:10px 0px 50px;
+      margin-top:10px;
+      background:#F5F5F5;
+    }
+    .detail .detail_all_info .detail_bottom button:first-child{
+      margin-right:10px;
+    }
+    /*订餐页样式*/
+    .order{
+      border:1px solid #F5F5F5;
+    }
+  </style>
+</head>
+<body ng-app="myapp" ng-click="begin()">
+  <div class="container-fluid" ng-controller="mycontroller" >
+    <!--头部导航栏框架-->
+    <div class="text-center navbar navbar-default navbar-fixed-top top">
+      <div class="navbar-header">
+        <a href="#/start" class="navbar-brand">开饭啦</a>
+        <button class="navbar-toggle" data-toggle="collapse" data-target="#aaa">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse" id="aaa" >
+        <ul class="nav navbar-nav">
+          <li data-toggle="tab"><a href="#/start">首页</a></li>
+          <li data-toggle="tab"><a href="#/myorder">个人中心</a></li>
+          <li data-toggle="tab"><a href="#/main_1">菜单</a></li>
+        </ul>
+      </div>
+    </div>
+    <!--切换展示区-->
+    <div ng-view style="padding: 60px 0px 50px;overflow:auto;"></div>
+    <!--尾部导航栏框架-->
+    <div class="navbar-fixed-bottom text-center bottom">
+      <ul class="row">
+        <li class="col-xs-4"><a href="#/start"><span class="glyphicon glyphicon-home"></span></a></li>
+        <li class="col-xs-4"><a href="#/myorder"><span class="glyphicon glyphicon-user"></span></a></li>
+        <li class="col-xs-4"><a href="#/main_1"><span class="glyphicon glyphicon-th-list"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+<!--应用各种依赖文件-->
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/angular.js"></script>
+<script type="text/javascript" src="js/angular-route.js"></script>
+<script type="text/javascript">
+  //显示菜单选择的状态码
+  var data_name="";
+  var module=angular.module("myapp",["ng","ngRoute"]);
+  //  mycontroller模块的操作--start页的跳转
+  module.controller("mycontroller",["$scope","$location","$http",function($scope,$location,$http){
+    $location.path("/start");
+    $scope.main=function(){
+      $location.path("/main_1");
+    }
+  //  mycontroller1模块的操作--主页的显示
+  }]).controller("mycontroller1",["$scope","$location","$http",function($scope,$location,$http){
+//    主页菜单的显示
+    var data_type=1;
+    $scope.datas=[];
+//    初始主页菜单
+    $http.get("dishes.php?data_type="+data_type).success(function(data){
+      $scope.datas=$scope.datas.concat(data);
+      if(data.length==5){
+        $scope.is_show=true;
+      }else{
+        $scope.is_show=false;
+      }
+      for(var i=0;i<$scope.datas.length;i++){
+        $scope.datas[i]. img="img/"+$scope.datas[i][0];
+        $scope.datas[i]. dish_name=$scope.datas[i][1];
+        $scope.datas[i]. food=$scope.datas[i][2];
+        $scope.datas[i]. price=$scope.datas[i][3];
+      }
+    })
+//    点击更多的主页菜单
+    $scope.more_dishes=function(){
+      data_type++;
+      $http.get("dishes.php?data_type="+data_type).success(function(data){
+        $scope.datas=$scope.datas.concat(data);
+        if(data.length==5){
+          $scope.is_show=true;
+        }else{
+          $scope.is_show=false;
+        }
+        for(var i=0;i<$scope.datas.length;i++){
+          $scope.datas[i]. img="img/"+$scope.datas[i][0];
+          $scope.datas[i]. dish_name=$scope.datas[i][1];
+          $scope.datas[i]. food=$scope.datas[i][2];
+          $scope.datas[i]. price=$scope.datas[i][3];
+        }
+      })
+    }
+//   点击进入菜单详情的界面操作
+    $scope.detail=function(){
+      data_name=this.data[1];
+    }
+//    菜单详情的编辑
+  }]).controller("mycontroller2",["$scope","$location","$http",function($scope,$location,$http){
+    if(data_name!=""){
+      $http.get("detail.php?data_name="+data_name).success(function(data){
+        $scope.dish_name=data[0][0];
+        $scope.img="img/"+data[0][1];
+        $scope.food=data[0][2];
+        $scope.info=data[0][3];
+      })
+    }
+//    下单的跳转
+  }]).controller("mycontroller3",["$scope","$location","$http",function($scope,$location,$http){
+    $scope.is_show=true;
+    $scope.enter_order=function(){
+      if(($scope.user!=null)&&($scope.sex!=null)&&($scope.tel!=null)&&($scope.addr!=null)){
+        var datas={
+          user:$scope.user,
+          sex:$scope.sex,
+          tel:$scope.tel,
+          addr:$scope.addr,
+          dish:data_name,
+        }
+        $http({
+          method:"post",
+          url:"order.php",
+          data:datas,
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          transformRequest: function(obj) {
+            var str = [];
+            for(var p in obj){
+              str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+            }
+            return str.join("&");
+          }
+        }).success(function(data){
+          $scope.is_show=false;
+          $scope.order_num=data;
+        })
+      }
+    }
+//   个人中心的编辑
+  }]).controller("mycontroller4",["$scope","$location","$http",function($scope,$location,$http){
+      $scope.datas=[];
+      var del_num=0;
+      $http.get("myorder.php?del_num="+del_num).success(function(data){
+        $scope.datas=data.reverse();
+        $scope.remove=function(btn) {
+          del_num=btn.data.oid;
+          $http.get("myorder.php?del_num="+del_num).success(function(data){
+            $scope.datas=data.reverse();
+          })
+        }
+      })
+
+    //    跳转字典
+  }]).config(function($routeProvider){
+//    起始页
+    $routeProvider.when("/start",{
+      templateUrl:"spl/start.html"
+    })
+//  主页
+    .when("/main_1",{
+      templateUrl:"spl/main_1.html"
+    })
+//   个人中心页
+    .when("/myorder",{
+      templateUrl:"spl/myorder.html"
+    })
+//   菜单详情页
+    .when("/detail_1",{
+      templateUrl:"spl/detail_1.html"
+    })
+//   下单页
+    .when("/order_1",{
+      templateUrl:"spl/order_1.html"
+    })
+  })
+</script>
+</html>

@@ -1,0 +1,24 @@
+<div class="main_1" ng-controller="mycontroller1">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="搜索菜品名称和原料" ng-model="searchText">
+    <span class="input-group-addon glyphicon glyphicon-search"></span>
+  </div>
+  <dl id="searchTextResults">
+    <dd ng-repeat="data in datas | filter:searchText">
+      <div class="media">
+        <div class="media-left media-middle">
+          <a href="#/detail_1">
+            <img class="media-object" ng-click="detail()" ng-src="{{data.img}}">
+          </a>
+        </div>
+        <div class="media-body">
+          <h2>{{data.dish_name}}</h2>
+          <p>{{data.food}}</p>
+          <span>{{data.price|currency:"￥"}}</span>
+        </div>
+      </div>
+    </dd>
+  </dl>
+  <button class="btn btn-success form-control" ng-click="more_dishes()" ng-show="is_show">加载更多</button>
+  <div class="alert alert-danger" ng-hide="is_show">没有更多数据了!</div>
+</div>

@@ -1,0 +1,25 @@
+<div ng-controller="mycontroller2" class="container detail">
+  <ul class="nav nav-pills">
+    <li role="presentation"><a href="#/start">首页</a></li>
+    <li><a href="#">/</a></li>
+    <li role="presentation" class="active"><a href="#/detail_1">详情</a></li>
+  </ul>
+  <div class="detail_all_info">
+    <div class="detail_info">
+      <h2>{{dish_name}}</h2>
+      <img ng-src="{{img}}">
+    <div>
+      <div class="detail_center">
+        <p><strong>主要原料：</strong>{{food}}</p>
+        <span>{{info}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="detail_bottom">
+    <div class="pull-right">
+      <a class="btn btn-success" href="#/order_1">我要订单</a>
+      <a class="btn btn-warning" href="#/main_1">我再看看</a>
+    </div>
+  </div>
+  </div>
+</div>
