@@ -1,0 +1,159 @@
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}
+body{font:12px"Micorsoft YaHei","Arial Narrow",HELVETICA;background:#fff;-webkit-text-size-adjust:100%;}
+a{text-decoration:none;}
+li{list-style:none}
+img{border:0;vertical-align:middle;}
+table{border-collapse:collapse;border-spacing:0}
+p{word-wrap:break-word}
+
+.head{
+    width: 990px;
+    height: 80px;
+    margin: 0 auto;
+}
+.head .left{
+    width: 165px;
+    height: 80px;
+    background: url("../img/logo.png") no-repeat;
+    float: left;
+}
+.head .middle{
+    font-size: 24px;
+    line-height: 80px;
+    margin-left: 28px;
+    float: left;
+}
+.head .right{
+    margin-top: 55px;
+    float: right;
+}
+.head .right a{
+    color: #999999;
+}
+.head .right a:hover{
+    color: #E93854;
+}
+.clear{
+    clear: both;
+}
+.red{
+    width: 100%;
+    background-color: #E93854;
+}
+.red .banner{
+    width: 990px;
+    height: 475px;
+    background: url("../img/big.jpg") no-repeat;
+    margin: 0 auto;
+}
+.red .banner .login{
+    width: 346px;
+    height: 361px;
+    float: right;
+    background-color: white;
+    margin-top: 40px;
+}
+.red .banner .login .top{
+    height: 54px;
+    font-size: 20px;
+    line-height: 54px;
+    color:#F4F4F4;
+    border-bottom: 1px solid #F4F4F4;
+}
+.red .banner .login .top a{
+    color: #666666;
+    width: 170px;
+    text-align: center;
+    display: inline-block;
+}
+.red .banner .login .top  a:hover{
+    color: #E93854;
+}
+.red .banner .login .center{
+    height: 255px;
+    border-bottom: 1px solid #F4F4F4;
+}
+.red .banner .login .center div{
+    width: 306px;
+    height: 40px;
+    margin-left: 21px;
+}
+.red .banner .login .center div img{
+    border:1px solid #F4F4F4;
+    float: left;
+}
+.red .banner .login .center div input{
+    width: 253px;
+    height: 38px;
+    border:1px solid #F4F4F4;
+    float: left;
+    color: #999999;
+    padding-left: 11px;
+}
+.red .banner .login .center .user{
+    padding-top: 36px;
+}
+.red .banner .login .center .pwd{
+    margin-top: 20px;
+}
+.red .banner .login .center .box{
+    width: 250px;
+    float: left;
+}
+.red .banner .login .center a{
+    color: #666666;
+    margin: 23px 22px 23px 0;
+    float: right;
+}
+.red .banner .login .center button{
+    width: 302px;
+    height: 31px;
+    background-color: #E4393C;
+    border: 1px solid #E85356;
+    margin-left: 21px;
+    color: white;
+    font-size: 22px;
+}
+.red .banner .login .bottom{
+    height: 50px;
+    background-color: #FCFCFC;
+}
+.red .banner .login .bottom .left{
+    line-height: 50px;
+    color:#D5CCD5;
+    float: left;
+    margin-left: 21px;
+}
+.red .banner .login .bottom .left a{
+    margin-right:13px;
+    color:#666666;
+}
+.red .banner .login .bottom .left .wx{
+    margin-left:13px;
+}
+.red .banner .login .bottom .right{
+    font-size: 16px;
+    line-height: 50px;
+    color:#D5CCD5;
+    float: right;
+    margin-right: 21px;
+}
+.red .banner .login .bottom .right a{
+    color:#E4393C;
+}
+.footer{
+    height:106px;
+    text-align: center;
+}
+.footer .footer_f {
+    margin-top:22px;
+}
+.footer .footer_f a{
+    margin:0 14px;
+    font-size:13px;
+    color:#666666;
+}
+.footer .footer_f p{
+    margin-top:16px;
+    color:#666666;
+}

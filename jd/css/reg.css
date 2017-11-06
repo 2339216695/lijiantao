@@ -1,0 +1,199 @@
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}
+body{font:12px"Microsoft YaHei","Arial Narrow",HELVETICA;background:#fff;-webkit-text-size-adjust:100%;}
+a{text-decoration:none;color:#6D5D6A;}
+li{list-style:none}
+img{border:0;vertical-align:middle;}
+table{border-collapse:collapse;border-spacing:0}
+p{word-wrap:break-word}
+
+.content{
+    width:1226px;
+    margin:0 auto;
+}
+.content:after{
+    clear:both;
+}
+.logo{
+    width: 1226px;
+    height: 100px;
+    margin: 0 auto;
+    border-bottom: 6px solid #F3F3F3;
+}
+.logo .content .lg{
+    width: 165px;
+    height: 80px;
+    background: url("../img/logo.png") no-repeat;
+    float: left;
+}
+.logo .content .lg1{
+    font-size: 24px;
+    line-height: 80px;
+    margin-left: 28px;
+    float: left;
+}
+.logo .content p{
+    float:right;
+    margin-top:58px;
+    font-size: 16px;
+    color:#9C9C9C;
+}
+.logo .content a{
+    margin-left:5px;
+    color:#323232;
+}
+.container .content{
+    height:737px;
+    border-bottom: 1px solid #E6E6E6;
+}
+.container .content .box{
+    width: 504px;
+    height:605px;
+    margin:50px 0 0 198px;
+    float:left;
+    border-right: 1px solid #E6E6E6;
+}
+.container .content .box form{
+    width: 400px;
+    height:480px;
+}
+.container .content .box form label div{
+    width: 124px;
+    height:52px;
+    border:1px solid #DDDDDD;
+    border-right: none;
+    float: left;
+    line-height: 52px;
+    font-size: 15px;
+    text-align: center;
+}
+.container .content .box form label select{
+    width: 124px;
+    height:54px;
+    border:1px solid #DDDDDD;
+    float: left;
+    line-height: 52px;
+    font-size: 15px;
+    text-align: center;
+}
+.container .content .box form input{
+    width: 272px;
+    height:52px;
+    border:1px solid #DDDDDD;
+    border-left: none;
+    float: left;
+}
+.container .content .box form div{
+    width: 360px;
+    height:32px;
+    float: left;
+    line-height: 27px;
+}
+.container .content .box form #box4{
+    width: 300px;
+    height:27px;
+    float: left;
+    line-height: 27px;
+}
+.container .content .box form .box4{
+    width: 60px;
+    height:27px;
+    float: right;
+    line-height: 27px;
+}
+.container .content .box form div a{
+    margin-top: 5px;
+    color:#3388FF;
+    float: right;
+}
+.container .content .box form #box7{
+    width: 60px;
+    height:37px;
+    line-height: 37px;
+    text-align: center;
+    font-size: 20px;
+    position: absolute;
+    margin-top: 350px;
+    margin-left: 338px;
+}
+.container .content .box form #box8{
+    width: 70px;
+    height:37px;
+    line-height: 37px;
+    text-align: center;
+    background-color: #F2F2F2;
+    position: absolute;
+    margin-top: 434px;
+    margin-left: 327px;
+}
+.container .content .box form #box8 a{
+    margin-top: 0px;
+    color:#000;
+    float: none;
+}
+.container .content .check{
+    width: 360px;
+    height:20px;
+    line-height: 20px;
+    font-size: 13px;
+    margin-top: 34px;
+}
+.container .content .check input{
+    margin-right: 2px;
+}
+.container .content .check a{
+    color:#3388FF;
+}
+.container .content .button{
+    width: 400px;
+    height:57px;
+    line-height: 57px;
+    font-size: 20px;
+    margin-top:32px;
+    text-align: center;
+    background-color:#EE2223;
+}
+.container .content .button a{
+    color: #fff;
+}
+.container .content .right{
+    width: 522px;
+    height:605px;
+    margin-top: 50px;
+    float:left;
+}
+.container .content .right div{
+    width: 160px;
+    height: 60px;
+    margin-left: 120px;
+}
+.container .content .right div img{
+    margin-right: 19px;
+    float: left;
+}
+.container .content .right .top{
+    border-bottom: 1px solid #DDDDDD;
+}
+.container .content .right .bottom{
+    margin-top: 35px;
+}
+.container .content .right>img{
+    margin-top: 35px;
+    margin-left: 488px;
+    position: absolute;
+}
+.footer{
+    height:117px;
+    text-align: center;
+}
+.footer .content .footer_f {
+    margin-top:35px;
+}
+.footer .content .footer_f a{
+    margin:0 14px;
+    font-size:13px;
+    color:#666666;
+}
+.footer .content .footer_f p{
+    margin-top:16px;
+    color:#666666;
+}
