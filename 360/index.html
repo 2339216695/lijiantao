@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>360防丢卫士</title>
+  <link rel="stylesheet" href="./360_style.min.css">
+</head>
+<body>
+  <div class="box">
+    <!--顶部部分结构-->
+    <div class="header clearfix">
+      <div class="logo"></div>
+      <ul class="clearfix">
+        <li>首页</li>
+        <li>常见问题</li>
+        <li>支持机型</li>
+        <li>官方微博</li>
+        <li>官方论坛</li>
+      </ul>
+      <div class="header_right_1 clearfix"></div>
+      <div class="header_right_2 clearfix"></div>
+      <div class="header_right_3 clearfix"></div>
+    </div>
+    <!--主干部分结构-->
+    <div class="content">
+      <!--第一个内容模块结构-->
+      <div class="content_1">
+        <div class="content_1_info"></div>
+        <div class="content_1_animation">
+          <div id="content_1_blue">
+            <div class="content_1_box1"></div>
+            <div class="content_1_shadow1"></div>
+          </div>
+          <div id="content_1_green">
+            <div class="content_1_box2"></div>
+            <div class="content_1_shadow2"></div>
+          </div>
+          <div id="content_1_yellow">
+            <div class="content_1_box3"></div>
+            <div class="content_1_shadow3"></div>
+          </div>
+          <div id="content_1_orange">
+            <div class="content_1_box4"></div>
+            <div class="content_1_shadow4"></div>
+          </div>
+          <div id="content_1_pink">
+            <div class="content_1_box5"></div>
+            <div class="content_1_shadow5"></div>
+          </div>
+        </div>
+      </div>
+  <!--第二个内容模块结构-->
+      <div class="content_2">
+        <div class="content_2_1"></div>
+        <div class="content_2_2"></div>
+        <div class="content_2_3"></div>
+      </div>
+  <!--第三个内容模块结构-->
+      <div class="content_3">
+        <div class="content_3_1"></div>
+        <div class="content_3_2"></div>
+      </div>
+  <!--第四个内容模块结构-->
+      <div class="content_4">
+      </div>
+  <!--第五个内容模块结构-->
+      <div class="content_5">
+        <div class="content_5_1"></div>
+      </div>
+  <!--第六个内容模块结构-->
+      <div class="content_6 clearfix">
+        <div class="content_6_1">
+          <div class="content_6_1_1 content_6_0"></div>
+          <div class="content_6_0_0">
+            <h2>一键呼叫</h2>
+            <p>找不到周围物品时，点击“呼叫”按钮，便可通过声音找到它</p>
+          </div>
+        </div>
+        <div class="content_6_2">
+          <div class="content_6_2_1 content_6_0"></div>
+          <div class="content_6_0_0">
+            <h2>智能提醒</h2>
+            <p>当物品和手机距离较远时，手机会收到报警，提醒您不忘带物品</p>
+          </div>
+        </div>
+        <div class="content_6_3">
+          <div class="content_6_3_1 content_6_0"></div>
+          <div class="content_6_0_0">
+            <h2>定位记录</h2>
+            <p>防丢卫士会记录物品丢失前的最后位置及时间，方便快速寻找</p>
+          </div>
+        </div>
+        <div class="content_6_4">
+          <div class="content_6_4_1 content_6_0"></div>
+          <div class="content_6_0_0">
+            <h2>双向防丢</h2>
+            <p>当手机距离较远时，防丢卫士会发出声音，提醒您手机不在身边</p>
+          </div>
+        </div>
+        <div class="content_6_5">
+          <div class="content_6_5_1 content_6_0"></div>
+          <div class="content_6_0_0">
+            <h2>超低功耗</h2>
+            <p>最新蓝牙4.0技术，超低功耗，一枚电池可用3个月以上</p>
+          </div>
+        </div>
+        <div class="content_6_6">
+          <div class="content_6_6_1 content_6_0"></div>
+          <div class="content_6_0_0">
+            <h2>小巧易戴</h2>
+            <p>仅一元钱硬币大小，可轻松粘贴或佩挂在物品上</p>
+          </div>
+        </div>
+    </div>
+    </div>
+    <!--页尾部分结构-->
+    <div id="footer">
+      <div class="footer_info1">
+        <h3>关注我们</h3>
+        <ul>
+          <li>官方论坛</li>
+          <li>新浪微博</li>
+        </ul>
+      </div>
+      <div class="footer_info2">
+        <h3>相关网站</h3>
+        <ul>
+          <li>360硬件专区</li>
+          <li>360安全路由</li>
+          <li>360儿童卫士</li>
+        </ul>
+      </div>
+      <div id="footer_weibo"></div>
+      <div id="footer_weixin"></div>
+      <div class="footer_info3 clearfix">
+        <p>Copyright&copy;2005-2014 360.cn All Rights Reserved.360安全卫士</p>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+  var aa=document.getElementsByClassName("header_right_3")[0];
+  aa.setAttribute("style","opacity:0");
+  document.getElementsByClassName("header_right_1")[0].onmousemove=function(){
+    aa.setAttribute("style","opacity:1");
+  }
+  document.getElementsByClassName("header_right_1")[0].onmouseout=function(){
+    aa.setAttribute("style","opacity:0");
+  }
+</script>
+</html>
