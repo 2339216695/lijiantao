@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2048</title>
+	<link rel="stylesheet" href="2084.css">
+</head>
+<body>
+    <h2>距离游戏结束还有：<span></span>已得分数：<span></span>分</h2>
+	<div class="box">
+		<a onclick="start(this)">点击图中任意位置开始游戏</a>
+		<p>游戏结束!!!</p>
+		<button onclick="re()">点击回到最开始界面</button>
+	</div>
+</body>
+<script type="text/javascript">
+//建立框架
+	var num_type=0;
+	var div = document.querySelector(".box");
+	var ul = document.createElement("ul");
+	var frage = document.createDocumentFragment();
+	for(var i=0;i<16;i++){
+		var li = document.createElement("li");
+		frage.appendChild(li);
+	}
+	ul.appendChild(frage);
+	div.appendChild(ul);
+//打开网页界面	
+	function start(that){
+		num_type=1;
+		that.style.display="none";
+		that.parentNode.querySelector("ul").style.display="block";
+		//倒计时开始
+		var h2=that.parentNode.parentNode.querySelector("h2");
+		h2.style.display="block";
+		var num = 300;
+		var timer=setInterval(function(){
+			num--;
+			document.querySelectorAll("span")[0].innerHTML=num+" s&nbsp  ";
+			document.querySelectorAll("span")[1].innerHTML=fen2;
+			if(num==0){
+				tag();
+				clearInterval(timer);
+				timer=null;
+			}
+			if(document.querySelector("ul").style.display=="none"&&document.querySelector("p").style.display=="block"&&document.querySelector("button").style.display=="block"){
+					clearInterval(timer);
+					timer=null;
+			}
+		},1000);
+	}
+//游戏开始界面
+	//生成随机位置的随机数
+	var lis = document.querySelectorAll("li");
+	function clickran(){
+		var random = Math.random();
+		var num = parseInt(Math.random()*(15-0+1)+0);
+    	while(1){
+			if(lis[num].innerHTML==""){
+    			lis[num].innerHTML=((random<0.8)?2:4);
+    			break;
+    		}else{
+    			num = parseInt(Math.random()*(15-0+1)+0);
+    		}
+    	}
+	}
+	clickran();
+	clickran();
+	bgColor();	
+//游戏结束编辑
+	//判断游戏是否结束，设置结束后代页面跳转
+	function gameOver(){
+		for(var a=0,lastNum=0;a<16;a++){
+    		if(lis[a].innerHTML!=""){
+    			lastNum++;
+    			if(lastNum==16){//16个格子填满，相邻的不相同=》游戏结束
+    				if(lis[0].innerHTML!=lis[1].innerHTML&&lis[0].innerHTML!=lis[4].innerHTML&&lis[1].innerHTML!=lis[2].innerHTML&&lis[1].innerHTML!=lis[5].innerHTML&&lis[2].innerHTML!=lis[3].innerHTML&&lis[2].innerHTML!=lis[6].innerHTML&&lis[3].innerHTML!=lis[7].innerHTML&&lis[4].innerHTML!=lis[5].innerHTML&&lis[4].innerHTML!=lis[8].innerHTML&&lis[5].innerHTML!=lis[6].innerHTML&&lis[5].innerHTML!=lis[9].innerHTML&&lis[6].innerHTML!=lis[7].innerHTML&&lis[6].innerHTML!=lis[10].innerHTML&&lis[7].innerHTML!=lis[11].innerHTML&&lis[8].innerHTML!=lis[9].innerHTML&&lis[8].innerHTML!=lis[12].innerHTML&&lis[9].innerHTML!=lis[10].innerHTML&&lis[9].innerHTML!=lis[13].innerHTML&&lis[10].innerHTML!=lis[11].innerHTML&&lis[10].innerHTML!=lis[14].innerHTML&&lis[11].innerHTML!=lis[15].innerHTML&&lis[12].innerHTML!=lis[13].innerHTML&&lis[13].innerHTML!=lis[14].innerHTML&&lis[14].innerHTML!=lis[15].innerHTML){
+    					tag();
+    				}
+    			}
+    		}
+    	}
+	}
+	//判断有数字的格子的数量，判定16时，不再产生随机数
+	function move(){
+		for(var i=0,textNum=0;i<16;i++){
+    		if(lis[i].innerHTML!=""){
+    			textNum++;
+    		}
+    	}
+    	(textNum!=16)?clickran():"";
+	}
+//页面跳转设置
+	function tag(){
+		document.querySelector("ul").style.display="none"; 
+		document.querySelector("p").style.display="block";
+		document.querySelector("button").style.display="block";
+	}
+//刷新页面
+	function re(){
+		history.go(0);
+	}
+	//上移和左移规则
+	var fen=0;
+	var fen1=0;
+	var fen2=0;
+	function run(a,j,num,deff){
+		j=a;
+		while(j>num){
+			if(lis[j+deff].innerHTML==""){
+    			lis[j+deff].innerHTML=lis[j].innerHTML;
+    			lis[j].innerHTML="";	
+    		}else if(lis[j+deff].innerHTML==lis[j].innerHTML){
+    			lis[j+deff].innerHTML*=2;
+    			fen+=parseInt(lis[j].innerHTML);
+    			lis[j].innerHTML="";
+    		}
+    		j=j+deff;
+		}
+	}
+	//下移和右移规则
+	function rerun(a,j,num,deff){
+		j=a;
+		while(j<num){
+			if(lis[j+deff].innerHTML==""){
+    			lis[j+deff].innerHTML=lis[j].innerHTML;
+    			lis[j].innerHTML="";	
+    		}else if(lis[j+deff].innerHTML==lis[j].innerHTML){
+    			lis[j+deff].innerHTML*=2;
+    			fen1+=parseInt(lis[j].innerHTML);
+    			lis[j].innerHTML="";
+    		}
+    		j=j+deff;
+		}
+	}
+	//背景颜色	
+	function bgColor(){
+		for(var i=0;i<16;i++){
+    		if(lis[i].innerHTML==""){
+    			lis[i].style.backgroundColor="#CDC0B5";
+    		}else if(lis[i].innerHTML==2){
+    			lis[i].style.backgroundColor="white";
+    		}else if(lis[i].innerHTML==4){
+    			lis[i].style.backgroundColor="orange";
+    		}else if(lis[i].innerHTML==8){
+    			lis[i].style.backgroundColor="purple";
+    		}else if(lis[i].innerHTML==16){
+    			lis[i].style.backgroundColor="green";
+    		}else if(lis[i].innerHTML==32){
+    			lis[i].style.backgroundColor="yellow";
+    		}else if(lis[i].innerHTML==64){
+    			lis[i].style.backgroundColor="pink";
+    		}else if(lis[i].innerHTML==128){
+    			lis[i].style.backgroundColor="gray";
+    		}else if(lis[i].innerHTML==256){
+    			lis[i].style.backgroundColor="black";
+    		}else if(lis[i].innerHTML==512){
+    			lis[i].style.backgroundColor="lightblue";
+    		}else if(lis[i].innerHTML==1024){
+    			lis[i].style.backgroundColor="skyblue";
+    		}else if(lis[i].innerHTML==2048){
+    			lis[i].style.backgroundColor="red";
+    		}
+    	}
+	}
+//键盘点击事件 
+	var onkeydown = function() {
+		var e = window.event || arguments[0];
+		var keynum=window.event?e.keyCode:e.which;
+//键盘点击上键事件
+		if (num_type == 1) {
+			if (keynum == 87 || keynum == 38 || keynum == 104) {
+				for (var a = 4, j = 0; a <= 15; a++) {
+					run(a, j, 3, -4);
+				}
+				move();
+				bgColor();
+//键盘点击下键事件   		
+			} else if (keynum == 83 || keynum == 40 || keynum == 98) {
+				for (var a = 11, j = 0; a >= 0; a--) {
+					rerun(a, j, 12, 4);
+				}
+				move();
+				bgColor();
+//键盘点击左键事件
+			} else if (keynum == 65 || keynum == 37 || keynum == 100) {
+				for (var a = 1, j = 0; a <= 3; a++) {
+					run(a, j, 0, -1);
+				}
+				for (var a = 5, j = 0; a <= 7; a++) {
+					run(a, j, 4, -1);
+				}
+				for (var a = 9, j = 0; a <= 11; a++) {
+					run(a, j, 8, -1);
+				}
+				for (var a = 13, j = 0; a <= 15; a++) {
+					run(a, j, 12, -1);
+				}
+				move();
+				bgColor();
+// 键盘点击右键事件    		
+			} else if (keynum == 68 || keynum == 39 || keynum == 102) {
+				for (var a = 2, j = 0; a >= 0; a--) {
+					rerun(a, j, 3, 1);
+				}
+				for (var a = 6, j = 0; a >= 4; a--) {
+					rerun(a, j, 7, 1);
+				}
+				for (var a = 10, j = 0; a >= 8; a--) {
+					rerun(a, j, 11, 1);
+				}
+				for (var a = 14, j = 0; a >= 12; a--) {
+					rerun(a, j, 15, 1);
+				}
+				move();
+				bgColor();
+			}
+			gameOver();
+			fen2 = fen + fen1;
+		}
+	}
+</script>
+</html>
